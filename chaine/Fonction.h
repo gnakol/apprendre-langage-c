@@ -1,0 +1,1 @@
+int lire(char *chaine, int taille);
