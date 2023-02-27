@@ -49,25 +49,25 @@ int main(int argc, char *argv[])
 
     parcourtRecursif(liste->premier);
 
-    printf("affichage exo1");
+    // printf("affichage exo1\n");
 
-    exo1(liste->premier);
+    // exo1(liste->premier);
 
-    printf("taper une valeur à supprimer \n");
+    // printf("taper une valeur à supprimer \n");
 
-    fflush(stdout);
+    // fflush(stdout);
 
-    int valSupprime;
+    // int valSupprime;
 
-    scanf("%d", &valSupprime);
+    // scanf("%d", &valSupprime);
 
-    suppression(liste, valSupprime);
+    // suppression(liste, valSupprime);
 
-    printf("voici à nouveau la liste après après suppression\n");
+    // printf("voici à nouveau la liste après après suppression\n");
 
-    parcourtRecursif(liste->premier);
+    // parcourtRecursif(liste->premier);
 
-    printf("Et voici la taille de la liste %d \n", sizeOfListe(liste->premier));
+    // printf("Et voici la taille de la liste %d \n", sizeOfListe(liste->premier));
 
     printf("donner une position pour inserer un elements ?\n");
 
@@ -88,6 +88,12 @@ int main(int argc, char *argv[])
     insertKiemPosition(liste, positionInsertion, valeurInsertion);
 
     printf("voici à nouveau la liste après l'insertion %dieme position\n", positionInsertion);
+
+    parcourtRecursif(liste->premier);
+
+    printf("voici à nouveau la liste après suppression du dernier element\n");
+
+    suppressionQueue(liste);
 
     parcourtRecursif(liste->premier);
 

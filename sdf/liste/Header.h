@@ -22,6 +22,7 @@ Liste *initialisation();
 void parcourtRecursif(Cellule *cellule);
 void parcourtIterative(Liste *liste);
 void insertionEnTete(Liste *liste, int nombre);
+void suppressionQueue(Liste *liste);
 void suppressionEnTete(Liste *liste);
 void insertionEnQueu(Liste *liste, int nombre);
 void exo1(Cellule *cellule);

@@ -71,9 +71,9 @@ void exo1(Cellule *cellule)
 {
     if (cellule != NULL)
     {
-        printf("%d\n", cellule->valeur);
+        printf("%d -->", cellule->valeur);
         exo1(cellule->suivant);
-        printf("%d\n", cellule->valeur);
+        printf("%d -->", cellule->valeur);
     }
     
 }
@@ -134,6 +134,16 @@ void insertKiemPosition(Liste *liste, int position, int valeur)
         exit(EXIT_FAILURE);
     }
 
+    if (compteur == position)
+    {
+        newCellule->valeur = valeur;
+        newCellule->suivant = liste->premier;
+        liste->premier = newCellule;
+
+        return;
+    }
+    
+
     while (pointeur != NULL && compteur != position)
     {
         cellule = pointeur;
@@ -141,16 +151,12 @@ void insertKiemPosition(Liste *liste, int position, int valeur)
         compteur++;
     }
 
-    if (position == compteur)
+    if (pointeur != NULL)
     {
         newCellule->valeur = valeur;
         newCellule->suivant = pointeur;
         cellule->suivant = newCellule;
     }
-    
-    
-    
-    
 }
 
 // ***************************SUPPRESSION**********************
@@ -167,6 +173,31 @@ void suppressionEnTete(Liste *liste)
     liste->premier = liste->premier->suivant;
 
     free(cellule);
+}
+
+void suppressionQueue(Liste *liste)
+{
+    if (liste == NULL)
+    {
+        exit(EXIT_FAILURE);
+    }
+
+    Cellule *pointeur = liste->premier, *precedent = liste->premier;
+
+    while (pointeur->suivant != NULL)
+    {
+        precedent = pointeur;
+        pointeur = pointeur->suivant;
+    }
+    
+    if (pointeur != NULL)
+    {
+        precedent->suivant = NULL;
+    }
+
+    free(pointeur);
+    
+    
 }
 
 void suppression(Liste *liste, int valeur)
